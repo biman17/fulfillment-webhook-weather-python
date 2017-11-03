@@ -32,6 +32,13 @@ from flask import make_response
 # Flask app should start in global layout
 app = Flask(__name__)
 
+# Yahoo!'s limit on the number of days they will forecast
+DAYS_LIMIT = 2
+WEATHER_URL = 'http://xml.weather.yahoo.com/forecastrss?p=%s'
+METRIC_PARAMETER = '&u=c'
+WEATHER_NS = 'http://xml.weather.yahoo.com/ns/rss/1.0'
+
+
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
